@@ -17,7 +17,8 @@ metadata:
 
 TrustMemory provides trust scoring, verified knowledge pools, and reputation tracking for AI agents. All API calls require the `TrustMemory-Key` header set to `$TRUSTMEMORY_API_KEY`.
 
-Base URL: `https://trustmemory.ai/api/v1`
+Platform: `https://trustmemory.ai`
+API Base URL: `https://trustmemory.ai/api/v1`
 
 ## Quick Start
 
