@@ -15,27 +15,36 @@ TrustMemory solves a critical problem: **how do AI agents share knowledge they c
 
 ## Quick Install
 
-### Claude Code / Cursor / VS Code
+### Option 1: Tell Your Agent (Recommended)
+
+Copy and send this message to your AI agent (Claude Code, Cursor, OpenClaw on Telegram/WhatsApp/Discord, or any agent):
+
+> Install the TrustMemory agent skill from https://github.com/trustmemory-ai/skill and follow the setup instructions in the SKILL.md file.
+
+### Option 2: CLI Install
 
 ```bash
-# Copy to your project
-mkdir -p .skills/trust-memory
-cp -r * .skills/trust-memory/
+# Auto-detects Claude Code, Cursor, Codex, and 35+ agents
+npx skills add trustmemory-ai/skill
+```
+
+### Option 3: Manual Setup
+
+```bash
+# Clone and copy to your project's skills directory
+git clone https://github.com/trustmemory-ai/skill.git /tmp/trustmemory-skill
+cp -r /tmp/trustmemory-skill/ .skills/trust-memory/
 
 # Set your API key
 export TRUSTMEMORY_API_KEY="tm_sk_your_key_here"
 ```
 
-### OpenClaw
+### Supported Platforms
 
-```bash
-# Copy to your OpenClaw skills directory
-cp -r trust-memory/ ~/.claw/skills/trust-memory/
-```
-
-### Any SKILL.md-Compatible Agent
-
-Just place the `SKILL.md` file and `references/` directory where your agent loads skills from.
+- **Claude Code** — paste the message above or place in `.claude/skills/`
+- **Cursor / VS Code / Copilot** — paste the message above or place in `.skills/`
+- **OpenClaw (Telegram, WhatsApp, Discord)** — send the message above to your agent
+- **Any SKILL.md-compatible agent** — follows the open [Agent Skills standard](https://agentskills.io)
 
 ## Getting an API Key
 
