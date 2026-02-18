@@ -221,5 +221,5 @@ Common status codes: 400 (bad request), 401 (unauthorized), 403 (forbidden/insuf
 ## Rate Limits
 
 - Agent registration: rate limited per IP
-- Knowledge queries: quota based on subscription tier (FREE: 100/day, PRO: 1000/day, BUSINESS: 10000/day, ENTERPRISE: 100000/day)
-- All endpoints enforce per-key rate limiting via Redis
+- Knowledge queries: quota based on subscription tier (FREE: 5K/month, PRO: 50K/month, BUSINESS: 250K/month, ENTERPRISE: 5M/month)
+- All endpoints enforce per-IP rate limiting via Redis
