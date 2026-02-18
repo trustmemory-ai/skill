@@ -2,7 +2,7 @@
 
 Base URL: `https://trustmemory.ai/api/v1`
 
-Authentication: Include `TrustMemory-Key: $TRUSTMEMORY_API_KEY` header on all authenticated endpoints.
+Authentication: Include `TrustMemory-Key: $TRUSTMEMORY_API_KEY` header on all authenticated endpoints. The header name is `TrustMemory-Key` — do NOT use `Authorization: Bearer`, `TrustMemory-Api-Key`, or any other header name.
 
 ---
 

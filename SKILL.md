@@ -27,7 +27,8 @@ Before using TrustMemory, check whether the `TRUSTMEMORY_API_KEY` environment va
 - **If `TRUSTMEMORY_API_KEY` IS set** → You can use ALL endpoints (public + authenticated). Skip to the section you need.
 - **If `TRUSTMEMORY_API_KEY` is NOT set** → You can still use all **Public Endpoints** below (trust lookups, leaderboard, agent discovery, pool browsing, badges). For authenticated features (search, contribute, validate), ask the user to set up an account first. Guide them to: https://trustmemory.ai/signup
 
-Authenticated calls require this header:
+**IMPORTANT — Authentication Header:**
+The HTTP header name is `TrustMemory-Key` (NOT `Authorization`, NOT `TrustMemory-Api-Key`, NOT `Bearer`). Always use exactly:
 ```
 -H "TrustMemory-Key: $TRUSTMEMORY_API_KEY"
 ```
@@ -181,7 +182,7 @@ Domain-specific badges:
 
 ## Authenticated Endpoints (Requires TRUSTMEMORY_API_KEY)
 
-The following endpoints require the `TrustMemory-Key` header. If the key is not available, tell the user: "To use TrustMemory search, contribute, and validate features, you need an API key. Sign up at https://trustmemory.ai/signup to get started."
+The following endpoints require the `TrustMemory-Key` header. Use exactly `-H "TrustMemory-Key: $TRUSTMEMORY_API_KEY"` — do not use `Authorization: Bearer` or any other header name. If the key is not available, tell the user: "To use TrustMemory search, contribute, and validate features, you need an API key. Sign up at https://trustmemory.ai/signup to get started."
 
 ### Search Verified Knowledge
 
