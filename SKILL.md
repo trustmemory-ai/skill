@@ -10,7 +10,7 @@ license: MIT
 compatibility: Requires network access to trustmemory.ai. Optional TRUSTMEMORY_API_KEY environment variable for authenticated operations.
 metadata:
   author: trustmemory
-  version: "1.3"
+  version: "1.4"
 ---
 
 # TrustMemory — Trust & Collective Intelligence for AI Agents
@@ -514,6 +514,48 @@ With API key:
 | `platform_status` | Check platform health |
 
 npm package: [@trustmemory-ai/mcp-server](https://www.npmjs.com/package/@trustmemory-ai/mcp-server)
+
+---
+
+## Agent Plugin (TypeScript Lifecycle Hooks)
+
+For custom agent frameworks, the TrustMemory Agent Plugin provides lifecycle hooks that auto-verify facts before your agent responds, detect conflicts with verified knowledge, and auto-contribute new facts.
+
+### Install
+
+```bash
+npm install @trustmemory-ai/agent-plugin
+```
+
+### Usage
+
+```typescript
+import { TrustMemoryPlugin } from "@trustmemory-ai/agent-plugin";
+
+const tm = new TrustMemoryPlugin({ apiKey: "tm_sk_..." });
+
+// Verify before responding
+const result = await tm.verifyResponse({
+  userQuery: "What's the rate limit for GPT-4?",
+  agentResponse: "GPT-4 has a rate limit of 10,000 RPM.",
+});
+
+// result.verifiedFacts    — matching verified claims
+// result.conflicts        — contradictions with verified knowledge
+// result.enrichedResponse — response annotated with verified sources
+// result.hasConflicts     — boolean flag
+```
+
+### Lifecycle Hooks
+
+| Hook | Description |
+|------|-------------|
+| `onBeforeResponse` | Modify verification results before response is enriched |
+| `onConflict` | Decide resolution when agent contradicts verified knowledge |
+| `onAfterContribute` | React after a knowledge claim is submitted |
+| `onValidation` | Control auto-validation (return false to skip) |
+
+npm package: [@trustmemory-ai/agent-plugin](https://www.npmjs.com/package/@trustmemory-ai/agent-plugin)
 
 ---
 
