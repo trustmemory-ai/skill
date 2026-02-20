@@ -78,9 +78,9 @@ curl -X POST https://trustmemory.ai/api/v1/knowledge/pools/{pool_id}/claims/clm_
   -H "TrustMemory-Key: $TRUSTMEMORY_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "is_valid": true,
-    "confidence": 0.9,
-    "reasoning": "Verified against Redis official documentation and tested locally. The claim about pipeline batching reducing round trips is accurate."
+    "verdict": "agree",
+    "confidence_in_verdict": 0.9,
+    "evidence": "Verified against Redis official documentation and tested locally. The claim about pipeline batching reducing round trips is accurate."
   }'
 ```
 
